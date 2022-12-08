@@ -6,11 +6,12 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 import static praktikum.IngredientType.SAUCE;
+import static praktikum.RandomHelper.*;
 
 @RunWith(Parameterized.class)
 public class IngredientTest {
 
-    private static IngredientType type;
+    private IngredientType type;
     private String name;
     private float price;
 
@@ -23,11 +24,11 @@ public class IngredientTest {
     @Parameterized.Parameters
     public static Object[][] getData() {
         return new Object[][]{
-                {SAUCE, "test", 100F},
-                {SAUCE, "test", 100F},
-                {SAUCE, "test", 100F},
-                {SAUCE, "test", 100F},
-                {SAUCE, "test", 100F},
+                {ingredienTypetGenerator(), stringGenerator(), priceGenerator()},
+                {ingredienTypetGenerator(), stringGenerator(), priceGenerator()},
+                {ingredienTypetGenerator(), stringGenerator(), priceGenerator()},
+                {ingredienTypetGenerator(), stringGenerator(), priceGenerator()},
+                {ingredienTypetGenerator(), stringGenerator(), priceGenerator()},
         };
     }
 
@@ -35,6 +36,7 @@ public class IngredientTest {
     public void getPrice() {
         Ingredient ingredient = new Ingredient(type, name, price);
         Assert.assertEquals(ingredient.getPrice(), price, 0);
+        System.out.println(price);
     }
 
     @Test
@@ -47,5 +49,6 @@ public class IngredientTest {
     public void getType() {
         Ingredient ingredient = new Ingredient(type, name, price);
         Assert.assertEquals(ingredient.getType(), type);
+        System.out.println(type);
     }
 }

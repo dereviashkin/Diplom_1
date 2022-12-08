@@ -36,6 +36,7 @@
                     <excludes>
                         <exclude>**/praktikum/Praktikum.class</exclude>
                         <exclude>**/praktikum/Database.class</exclude>
+                        <exclude>**/praktikum/RandomHelper.class</exclude>
                     </excludes>
                 </configuration>
                 <executions>
