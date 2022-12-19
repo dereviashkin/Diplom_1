@@ -24,23 +24,22 @@ public class BurgerTest {
     @Test
     public void setBunsCorrectSuccess() {
         burger.setBuns(bun);
-        Assert.assertEquals(burger.bun, bun);
+        Assert.assertEquals("Булочка не та!", burger.bun, bun);
     }
 
     @Test
     public void addIngredientCorrectSuccess() {
         int expected = 1;
         burger.addIngredient(ingredient);
-        Assert.assertEquals(expected, burger.ingredients.size());
+        Assert.assertEquals("Количество ингредиентов не соответствует ожидаемому", expected, burger.ingredients.size());
     }
 
     @Test
     public void removeIngredientCorrectSuccess() {
-
         int expected = 0;
         burger.addIngredient(ingredient);
         burger.removeIngredient(0);
-        Assert.assertEquals(burger.ingredients.size(), expected);
+        Assert.assertEquals("Количество ингредиентов не соответствует ожидаемому", expected, burger.ingredients.size());
     }
 
     @Test
@@ -50,7 +49,7 @@ public class BurgerTest {
             burger.addIngredient(anotherIngredient);
         }
         burger.moveIngredient(0, 4);
-        Assert.assertEquals(burger.ingredients.get(4), ingredient);
+        Assert.assertEquals("Ингредиент не на правильном месте", burger.ingredients.get(4), ingredient);
     }
 
     @Test
@@ -61,7 +60,7 @@ public class BurgerTest {
         Mockito.when(ingredient.getPrice()).thenReturn(2F);
         float expected = 6F;
         float actual = burger.getPrice();
-        Assert.assertEquals(expected, actual, 0);
+        Assert.assertEquals("Цена бургера не соответствует ожидаемой", expected, actual, 0);
     }
 
     @Test
@@ -77,6 +76,6 @@ public class BurgerTest {
                 "(==== black bun ====)\r\n" +
                 "\r\nPrice: 100,000000\r\n";
         String actual = burger.getReceipt();
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals("Рецепт не соответствует ожидаемому", expected, actual);
     }
 }

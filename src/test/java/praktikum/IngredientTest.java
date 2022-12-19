@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import static praktikum.IngredientType.SAUCE;
 import static praktikum.RandomHelper.*;
 
 @RunWith(Parameterized.class)
@@ -21,7 +20,7 @@ public class IngredientTest {
         this.price = price;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тестовые данные:{0}{1}")
     public static Object[][] getData() {
         return new Object[][]{
                 {ingredienTypetGenerator(), stringGenerator(), priceGenerator()},
@@ -35,20 +34,19 @@ public class IngredientTest {
     @Test
     public void getPrice() {
         Ingredient ingredient = new Ingredient(type, name, price);
-        Assert.assertEquals(ingredient.getPrice(), price, 0);
+        Assert.assertEquals("Цена ингредиента не соответствует ожидаемой", price, ingredient.getPrice(), 0);
         System.out.println(price);
     }
 
     @Test
     public void getName() {
         Ingredient ingredient = new Ingredient(type, name, price);
-        Assert.assertEquals(ingredient.getName(), name);
+        Assert.assertEquals("Название ингредиента не соответствует ожидаемому", name, ingredient.getName());
     }
 
     @Test
     public void getType() {
         Ingredient ingredient = new Ingredient(type, name, price);
-        Assert.assertEquals(ingredient.getType(), type);
-        System.out.println(type);
+        Assert.assertEquals("Название ингредиента не соответствует ожидаемому", type, ingredient.getType());
     }
 }

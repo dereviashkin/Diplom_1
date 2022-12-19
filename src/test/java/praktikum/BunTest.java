@@ -12,12 +12,12 @@ public class BunTest {
     @Test
     public void getNameCorrectSuccess() {
         String result = bun.getName();
-        Assert.assertEquals(result, expectedName);
+        Assert.assertEquals("Имя булочки не соответствует ожидаемому", expectedName, result);
     }
 
     @Test
     public void getPriceCorrectSuccess() {
         float result = bun.getPrice();
-        Assert.assertEquals(result, expectedPrice, 0);
+        Assert.assertEquals("Цена булочки не соответствует ожидаемой", expectedPrice, result, 0);
     }
 }

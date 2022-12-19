@@ -15,6 +15,6 @@ public class IngredientTypeTest {
     @Test
     public void valueOfCorrectSuccess() {
         String expected = "SAUCE";
-        Assert.assertEquals(IngredientType.valueOf(SAUCE.name()).toString(), expected);
+        Assert.assertEquals("Тип ингредиента не соответствует ожидаемому", expected, IngredientType.valueOf(SAUCE.name()).toString());
     }
 }
